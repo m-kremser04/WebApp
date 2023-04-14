@@ -1,0 +1,111 @@
+<?php>
+<head>
+  <meta charset="UTF-8">
+  <title>TechPro.com Register</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+<header>
+  <h1>Bitte geben sie ihre Anmeldedaten ein für die Registrierung auf TechPro.com</h1>
+</header>
+
+<article>
+  <form id="form1" action="register.php" method="post" class="myContainer">
+    <div class="col-25">
+      <label for="fname">Vorname</label>
+      <label for="lname">Nachname</label>
+      <label for="birthdate">Geburtsdatum</label>
+      <label for="email">Email</label>
+      <label for="password">Passwort</label>
+      <label for="password2">Erneut</label>
+      <label for="Adresse">Adresse</label>
+      <label for="Wohnort">Wohnort</label>
+      <label for="PLZ">PLZ</label>
+      <label for="Bundesland">Bundesland:</label>
+      <label for="Number">Telefonnummer</label>
+      <label for="file">Profilbild</label>
+    </div>
+    <div class="col-75">
+      <input name="fname" type="text" id="fname" placeholder="Vorname"><br>
+      <input name="nname" type="text" id="lname" placeholder="Nachname"><br>
+      <input name="Geburtsdatum" type="date" id="birthdate"><br>
+      <input name="mail" type="email" id="email"><br>
+      <input name="password1" type="password" id="password"><br>
+      <input name="password2" type="password" id="password2"><br>
+      <input name="Adresse" type="text" id="Adresse" placeholder="Adresse"><br>
+      <input name="Ort" type="text" id="Wohnort" placeholder="Wohnort"><br>
+      <input name="PLZ" type="number" id="PLZ" placeholder="PLZ"><br>
+      <select name="Bundesland" id="Bundesland">
+        <option value="Salzburg">Salzburg</option>
+        <option value="Burgenland">Burgenland</option>
+        <option value="Oberösterreich">Oberösterreich</option>
+        <option value="Niederösterreich">Niederösterreich</option>
+        <option value="Wien">Wien</option>
+        <option value="Tirol">Tirol</option>
+        <option value="Vorarlberg">Vorarlberg</option>
+        <option value="Steiermark">Steiermark</option>
+        <option value="Kärnten">Kärnten</option></select><br>
+      <input name="Telnummer" type="text" id="Number" placeholder="+xx xxx xxxx"><br>
+      <input type="file" id="file" name="file"><br>
+
+      <input type="submit" id="submit" placeholder="Submit">
+      </select>
+    </div>
+
+
+
+  </form>
+</article>
+
+<aside>
+  <div1>
+    <ul class="Produktliste">
+      <li><a href="index.html">Startseite</a></li>
+      <li><a href="Account_Create.html" >Register</a></li>
+      <li><a href="Login.html">Login</a></li>
+      <li><a href="Profil.html">Profil</a> </li>
+      <li><a href="PLC.html">PLCs</a></li>
+      <li><a href="Software.html">Software</a></li>
+      <li><a href="PCs.html">Industrie-PCs</a></li>
+      <li><a href="Zubehör.html">Zubehör</a></li>
+    </ul>
+  </div1>
+</aside>
+
+<script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+<script>  $('#form1').submit(function(event)
+{    event.preventDefault();
+  var form = $(this);
+  var actionUrl = form.attr('action');
+  var data = new FormData(this);
+  if($('#password').val() !== $('#password2').val())
+  {      alert("Passwörter stimmen nicht überein!");
+    return;
+  }
+  $.ajax({
+    type: "POST",
+    url: actionUrl,
+    data: data,
+    success: function(data)
+    {
+      try{
+        data = JSON.parse(data);
+        if(data['status']){
+          alert("Success");
+          location.href="index.html";
+        }
+        else{
+          alert("Fehlgeschlagen");
+        }
+      }catch{
+        alert("Something went wrong!");
+      }
+    },
+    cache: false,
+    contentType: false,
+    processData: false
+  });
+});</script>
+</body>
+<?>
