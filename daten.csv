@@ -1,0 +1,2 @@
+Vorname;Nachname;Geburtsdatum;mail;passwort;adresse;wohnort;plz;bundesland;Telnummer;Profilbild
+"Test";"Testomann";"3333-03-30";"testomann@gmail.com";"$argon2id$v=19$m=65536,t=4,p=1$NC9WTmQwd0JLMTRrUXVGUg$0cCXSGfE1y9+rfjoRi2n39aoyjYxPRxtLtOS2rNZtXQ";"Testoort";"Testoort";"4533";"Salzburg";"+343 234234 234";"C:\xampp\tmp\php474D.tmp"

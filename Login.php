@@ -3,10 +3,10 @@
 require_once("config.php");
 global $config;
 
-$servername = "localhost";
-$username = "markus.kremser";
+$servername = "mk-3012.mysql.database.azure.com";
+$username = "kremser_admin";
 $password = "Test.123";
-$dbname = "mydb";
+$dbname = "website";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);

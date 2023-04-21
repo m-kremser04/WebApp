@@ -9,9 +9,9 @@ class SQL
     $json = json_decode($json, true);
 
 
-    $servername = "localhost";
-    $database = "mydb";
-    $username = "markus.kremser";
+    $servername = "mk-3012.mysql.database.azure.com";
+    $database = "website";
+    $username = "kremser_admin";
     $password = "Test.123";
 
 
